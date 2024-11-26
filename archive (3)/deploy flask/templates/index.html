@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Predictor Form</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}" />
+  </head>
+  <body>
+    <div class="form-container">
+      <form action="/predict" method="post">
+        <h2>Predictor Form</h2>
+        <label for="same_srv_rate">Same SRV Rate:</label>
+        <input
+          type="text"
+          id="same_srv_rate"
+          name="same_srv_rate"
+          required
+        /><br />
+
+        <label for="dst_host_same_srv_rate">Dst Host Same SRV Rate:</label>
+        <input
+          type="text"
+          id="dst_host_same_srv_rate"
+          name="dst_host_same_srv_rate"
+          required
+        /><br />
+
+        <label for="dst_host_srv_rerror_rate">Dst Host SRV Rerror Rate:</label>
+        <input
+          type="text"
+          id="dst_host_srv_rerror_rate"
+          name="dst_host_srv_rerror_rate"
+          required
+        /><br />
+
+        <label for="dst_host_rerror_rate">Dst Host Rerror Rate:</label>
+        <input
+          type="text"
+          id="dst_host_rerror_rate"
+          name="dst_host_rerror_rate"
+          required
+        /><br />
+
+        <label for="rerror_rate">Rerror Rate:</label>
+        <input type="text" id="rerror_rate" name="rerror_rate" required /><br />
+
+        <label for="srv_rerror_rate">SRV Rerror Rate:</label>
+        <input
+          type="text"
+          id="srv_rerror_rate"
+          name="srv_rerror_rate"
+          required
+        /><br />
+
+        <label for="dst_host_srv_count">Dst Host SRV Count:</label>
+        <input
+          type="text"
+          id="dst_host_srv_count"
+          name="dst_host_srv_count"
+          required
+        /><br />
+
+        <label for="count">Count:</label>
+        <input type="text" id="count" name="count" required /><br />
+
+        <label for="diff_srv_rate">Diff SRV Rate:</label>
+        <input
+          type="text"
+          id="diff_srv_rate"
+          name="diff_srv_rate"
+          required
+        /><br />
+
+        <label for="dst_host_diff_srv_rate">Dst Host Diff SRV Rate:</label>
+        <input
+          type="text"
+          id="dst_host_diff_srv_rate"
+          name="dst_host_diff_srv_rate"
+          required
+        /><br />
+
+        <input type="submit" value="Submit" />
+      </form>
+      {% if prediction_text %}
+      <p class="result">{{ prediction_text }}</p>
+      {% endif %}
+    </div>
+  </body>
+</html>
